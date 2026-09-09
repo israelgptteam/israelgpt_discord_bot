@@ -1,8 +1,8 @@
 # IsraelGPT Discord Bot
 
-A reference Python client for the [IsraelGPT public API](https://www.israelgpt.site/docs). Responds when @mentioned or DM'd, using the same persona that powers the main IsraelGPT chat.
+A reference Python client for the [IsraelGPT public API](https://www.israelgpt.site/docs) — bring the same AI chatbot that powers [IsraelGPT.site](https://www.israelgpt.site) into your own Discord server.
 
-> **This cannot run on Vercel.** A Discord bot needs a persistent WebSocket connection to Discord's gateway; Vercel serverless functions are short-lived and stateless and cannot host it. Run this as its own always-on process — a small VPS, [Railway](https://railway.app), [Fly.io](https://fly.io), or your own machine. It is a completely separate deployment from the Next.js app in the rest of this repo.
+IsraelGPT is a free AI chatbot focused on Israel — history, culture, technology, and current events — with chat personas, image generation, and live news, wrapped in a self-aware satirical tone. This bot responds when `@mentioned` or DM'd, using the same persona that powers the main IsraelGPT chat.
 
 ## Setup
 
@@ -16,6 +16,8 @@ pip install -r requirements.txt
 python bot.py
 ```
 
+Run it as a long-lived process on a VPS, [Railway](https://railway.app), [Fly.io](https://fly.io), or your own machine — anywhere that keeps a persistent connection open.
+
 ## What it does
 
 - Responds when the bot is `@mentioned` in a server channel, or DM'd directly.
@@ -23,4 +25,13 @@ python bot.py
 - Strips bracket tags with no effect through the API (`[ACTION:...]`, `[MEMORY:...]`, `[QUESTION:...]`, etc.) before posting the reply, and posts any resolved images/audio from the response's `media` object as follow-up messages.
 - Handles `429` rate-limit responses gracefully, telling the user how long to wait instead of erroring.
 
-See `bot.py`'s `call_israelgpt()` function for the exact request shape — it's mirrored verbatim in the Python example on [/docs](https://www.israelgpt.site/docs) so the two never drift apart.
+See `bot.py`'s `call_israelgpt()` function for the exact request shape — it's mirrored verbatim in the Python example on [the API docs](https://www.israelgpt.site/docs) so the two never drift apart.
+
+## Links
+
+- **Live app:** [israelgpt.site](https://www.israelgpt.site)
+- **API docs:** [israelgpt.site/docs](https://www.israelgpt.site/docs)
+
+## License
+
+Apache-2.0
